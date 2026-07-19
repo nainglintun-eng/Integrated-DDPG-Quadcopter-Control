@@ -159,25 +159,7 @@ class QuadcopterDynamics:
         """
         Compatibility shim so existing env code keeps working unchanged.
 
-        thrust  : scalar Ft  (N)
-        torques : (3,)  [tau_x, tau_y, tau_z]
-        """
-        U = np.array([thrust, torques[0], torques[1], torques[2]])
-
-        def deriv(x):
-            xdot = self.Full_f(x) + self.Full_g(x) @ U
-            if self.wind_enabled:
-                wind_vel   = np.random.normal(self.wind_mean, self.wind_std)
-                xdot[3:6] += 0.01 * wind_vel
-            return xdot
-
-        k1 = deriv(X)
-        k2 = deriv(X + 0.5*self.dt*k1)
-        k3 = deriv(X + 0.5*self.dt*k2)
-        k4 = deriv(X + self.dt*k3)
-
-        X_new      = X + (self.dt / 6.0) * (k1 + 2*k2 + 2*k3 + k4)
-        X_new[6:9] = self.wrap_angles(X_new[6:9])
+       
         return X_new
 
     @staticmethod
