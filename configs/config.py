@@ -18,15 +18,15 @@ class SystemConfig:
     IXX = 0.3
     IYY = 0.4
     IZZ = 0.5
-    L   = 0.2        # arm half-length (m)
+    L   =        # arm half-length (m)
 
     # this file is not fully provided to prevent original research.
 
     # Trajectory parameters (expanding helix)
     A     = 9.81
     B     = 0.01
-    OMEGA = 0.2
-    VZ    = 1.0
+    OMEGA = 
+    VZ    = 
 
 
 class IntegratedAgentConfig:
@@ -39,7 +39,7 @@ class IntegratedAgentConfig:
     ACTION_DIM = 4
 
     # FIX 1: normalised action space
-    ACTION_SCALE = 1.0   # actor max_action – DO NOT change
+    ACTION_SCALE =   # actor max_action – DO NOT change
 
     # Per-channel physical limits (used in env.step() for rescaling)
     MAX_THRUST     = SystemConfig.MAX_THRUST
@@ -48,10 +48,10 @@ class IntegratedAgentConfig:
     MAX_TORQUE_YAW = SystemConfig.MAX_TORQUE_YAW
 
     # Max body accel (for obs normalisation of acc_des channel)
-    MAX_BODY_ACCEL = 15.0
+    MAX_BODY_ACCEL = 
 
     # Network
-    HIDDEN_DIMS = 256
+    HIDDEN_DIMS = 
 
     # DDPG hyperparameters
     
@@ -63,13 +63,13 @@ class IntegratedAgentConfig:
   
 
     # Replay
-    BATCH_SIZE   = 256
-    BUFFER_SIZE  = 500_000
-    WARMUP_STEPS = 3_000
+    BATCH_SIZE   = 
+    BUFFER_SIZE  = 
+    WARMUP_STEPS = 
 
     # Exploration
-    EXPLORATION_NOISE = 0.4
-    MIN_NOISE         = 0.05
+    EXPLORATION_NOISE = 
+    MIN_NOISE         = 
 
     # Curriculum: start with hover, then scale up
     # Curriculum phases
@@ -81,11 +81,11 @@ class IntegratedAgentConfig:
 
 
 class TrainingConfig:
-    SAVE_FREQUENCY           = 500
-    LOG_FREQUENCY            = 5
-    EVAL_EPISODES            = 5
-    KEEP_BEST_ONLY           = True
-    MIN_EPISODES_BEFORE_STOP = 100
+    SAVE_FREQUENCY           = 
+    LOG_FREQUENCY            = 
+    EVAL_EPISODES            = 
+    KEEP_BEST_ONLY           = 
+    MIN_EPISODES_BEFORE_STOP = 
 
 
 def get_trajectory_function():
